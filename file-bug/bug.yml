@@ -1,0 +1,81 @@
+name: Bug Report
+description: 报告一个可复现的 bug
+title: "[Bug] "
+labels:
+  - bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢报告 bug。模板字段尽量填全 — file-bug skill 会按字段顺序定位根因、查重、自动填 body。
+        放在仓库 `.github/ISSUE_TEMPLATE/bug.yml` 即可激活。
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 现象描述
+      description: 一句话说清问题。
+      placeholder: 点击「保存」后页面白屏 · console 报 TypeError
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 最小复现路径,逐步列出。
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 受影响的模块、页面、用户群体。
+      placeholder: 前端 /workspace 页 · 所有员工角色 · 部门后台不受影响
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 严重度
+      options:
+        - "P0 — 阻塞核心功能,用户无法使用"
+        - "P1 — 重要功能异常,本周必修"
+        - "P2 — 非核心问题,下周修"
+        - "P3 — 体验优化,后续迭代"
+    validations:
+      required: true
+
+  - type: input
+    id: refs
+    attributes:
+      label: 相关 commit / PR / Issue
+      placeholder: "#123 · abc1234 · 引入 bug 的提交"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / 截图 / 报错信息
+      description: 贴 stack trace、截图链接、curl 输出等。
+      render: shell
